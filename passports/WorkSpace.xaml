@@ -1,0 +1,70 @@
+﻿<Window x:Class="passports.WorkSpace"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:passports"
+        mc:Ignorable="d"
+                Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        AllowsTransparency="True" Background="Transparent">
+
+    <Border Background="#eff2f7" CornerRadius="30">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            
+            
+            
+            <Border Grid.Column="0" Background="AliceBlue" CornerRadius="30">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="100"/>
+                    </Grid.RowDefinitions>
+                
+                <StackPanel HorizontalAlignment="Center" Grid.Row="0" Orientation="Horizontal" Margin="20 20 0 0">
+                    <TextBlock x:Name="famLable" FontSize="18"></TextBlock>
+                    <TextBlock x:Name="nameLable" FontSize="18" Margin="10 0 0 0"></TextBlock>
+                </StackPanel>
+                    <Button BorderThickness="0" Background="AliceBlue" Grid.Row="1" x:Name="btnListShow" Click="btnListShow_Click" Content="Показать список" FontSize="22"/>
+                    <Button BorderThickness="0" Background="AliceBlue" Grid.Row="2" x:Name="addDocument" Click="addDocument_Click"  Content="Добавить документ" FontSize="22"/>
+                </Grid>
+        </Border>
+            
+            
+            
+            
+            <Border Grid.Column="1" Background="White" CornerRadius=" 0 30 30 0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="100"/>
+                    </Grid.RowDefinitions>
+
+                    <ListView VerticalAlignment="Top" x:Name="listOfPassports" Grid.Row="1" Background="Transparent"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Фамилия" Width="100" DisplayMemberBinding="{Binding PassFam}"/>
+                                <GridViewColumn Header="Имя" Width="100" DisplayMemberBinding="{Binding PassName}"/>
+                                <GridViewColumn Header="Серия" Width="100" DisplayMemberBinding="{Binding PassSeria}"/>
+                                <GridViewColumn Header="Номер" Width="100" DisplayMemberBinding="{Binding PassNumber}"/>
+                                <GridViewColumn Header="Начало действия" Width="150" DisplayMemberBinding="{Binding DateOfStart}"/>
+                                <GridViewColumn Header="Конец действия" Width="150" DisplayMemberBinding="{Binding DateOfEnd}"/>
+                        </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                </Grid>
+            </Border>
+            
+            
+        </Grid>
+    </Border>
+</Window>
